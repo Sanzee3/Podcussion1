@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"> 
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>PODCUSSION</title> 
+  <link rel="stylesheet" href="styles.css"> 
+ </head> 
+ <body> <!-- Header --> 
+  <div class="header"> 
+   <h1 class="animated-title">PODCUSSION</h1> 
+   <p>Welcome to Podcussion.</p> 
+  </div> <!-- Portal Quarters --> 
+  <div class="portal-container"> 
+   <div class="quarters"> 
+    <div class="quarter" onclick="openSection('intro')"> 
+     <h2>Quarter 1: Introduction</h2> 
+     <p>FAQs about PODCUSSION</p> 
+    </div> 
+    <div class="quarter" onclick="openSection('logo')"> 
+     <h2>Quarter 2: Our Logo</h2> 
+     <p>FAQs about our logo</p> 
+    </div> 
+    <div class="quarter" onclick="openSection('videos')"> 
+     <h2>Quarter 3: Youtube</h2> 
+     <p>Our YouTube Channel and Videos</p> 
+    </div> 
+    <div class="quarter" onclick="openSection('comingsoon')"> 
+     <h2>Quarter 4: YouTube Analytics</h2> 
+     <p>Our YouTube Analytics</p> 
+    </div> 
+   </div> 
+  </div> <!-- Content Section --> 
+  <div id="contentSection" class="content-section"> 
+   <div id="contentArea"></div> <button class="close-btn" onclick="closeSection()"></button> 
+  </div> <!-- Sounds --> 
+  <audio id="hoverSound" src="hover-sound.mp3"></audio> 
+  <audio id="clickSound" src="click-sound.mp3"></audio> 
+  <canvas id="bgCanvas"></canvas> <!-- Add an invisible "Easter egg" button in your HTML --> 
+  <div id="easterEgg" class="hidden"> 
+   <p>Surprise! You found the Easter Egg!</p> 
+  </div> <!-- Badge container --> 
+  <div id="badgeContainer"></div> 
+  <script src="script.js"></script>
+ </body>
+</html>

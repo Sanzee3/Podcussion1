@@ -1,0 +1,243 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  body {
+    overflow: hidden;
+    background-color: #081c24;
+    color: #ffffff;
+    position: relative;
+  }
+  
+  canvas#bgCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 40px 20px 20px;
+  }
+  
+  .animated-title {
+    font-size: 4rem;
+    background: linear-gradient(90deg, #00e0ff, #1c70ff);
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #00c3ff, 0 0 20px #00c3ff;
+    }
+    to {
+      text-shadow: 0 0 20px #1c70ff, 0 0 30px #1c70ff;
+    }
+  }
+  
+  .header p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    opacity: 0.85;
+  }
+  
+
+  .portal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .quarters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .quarter {
+    background: linear-gradient(145deg, #0d3c60, #112f4f);
+    border: 2px solid #00c3ff;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .quarter:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00c3ff;
+  }
+  
+  .quarter h2 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .quarter p {
+    font-size: 1.1rem;
+    color: #bbd9ff;
+  }
+  
+  .content-section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(8, 28, 36, 0.95);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .content-section.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  #contentArea {
+    background: #102d45;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    color: #e0f7ff;
+  }
+  
+  #contentArea h2 {
+    margin-bottom: 20px;
+    color: #00c3ff;
+  }
+  
+  #contentArea iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 195, 255, 0.3);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    font-size: 2.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .close-btn:hover {
+    transform: scale(1.2);
+  }
+  
+  .faq {
+    margin-bottom: 25px;
+  }
+  
+  .faq h3 {
+    color: #00c3ff;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+  
+  .faq p {
+    color: #e0f7ff;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: #00c3ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 8px #00c3ff;
+    animation: fadeTrail 0.6s linear forwards;
+    opacity: 0.8;
+  }
+  
+
+  @keyframes fadeTrail {
+    to {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
+  #easterEgg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #ff0080;
+    color: white;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    display: none;
+    opacity: 0;
+    animation: eggGlow 1s infinite alternate;
+  }
+  
+  @keyframes eggGlow {
+    from {
+      box-shadow: 0 0 20px #ff00f7;
+    }
+    to {
+      box-shadow: 0 0 40px #ff00f7;
+    }
+  }
+  #badgeContainer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+  }
+  
+  .badge {
+    background-color: #00c3ff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: inline-block;
+    animation: badgeAppear 0.5s ease-out;
+  }
+  
+  @keyframes badgeAppear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
